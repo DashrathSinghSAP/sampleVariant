@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: com.sap.sample.variant.samplevariant
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        log: 5
+        target:
+          url: https://backend.url.com:8300
+        app:
+          name: ZSAMPLEVARAINT
+          description: Sample variant application
+          package: $tmp
+          transport: ""
+        ignoreCertError: true

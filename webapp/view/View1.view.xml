@@ -1,0 +1,50 @@
+<mvc:View controllerName="com.sap.sample.variant.samplevariant.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:table="sap.ui.table"
+	xmlns:smartVariantManagement="sap.ui.comp.smartvariants"
+    >
+    <Page id="page" title="{i18n>title}">
+        <content >
+            <l:VerticalLayout>
+            <smartVariantManagement:SmartVariantManagement
+                id="pageVariantId"
+                persistencyKey="PageVariantPKey"/>
+            <table:Table id="idUiTable" columnMove="handleColumnMove" rows="{/Suppliers}">
+                <table:extension>
+                    <OverflowToolbar>
+                        <Button id="testBtn" text="Accept" type="Accept" press="onButtonPress"/>
+                        <ToolbarSpacer/>
+                            <Button icon="sap-icon://action-settings" type="Emphasized"
+                                    class="sapUiTinyMarginEnd" width="2em"
+                                    press="onPersonalizeColumns" />
+                    </OverflowToolbar>
+			    </table:extension>
+                <table:columns>
+                    <table:Column id="idUiIDColumn" name="{i18n>View1View.Id}">
+                        <Label text="{i18n>View1View.Id}"/>
+						<table:template>
+							<Text text="{Id}" />
+						</table:template>
+                    </table:Column>
+                    <table:Column id="idUiNameColumn" name="{i18n>View1View.Name}">
+                        <Label text="{i18n>View1View.Name}"/>
+						<table:template>
+							<Text text="{Name}" />
+						</table:template>
+                    </table:Column>
+                    <table:Column id="idUiEmailColumn" name="{i18n>View1View.Email}">
+                        <Label text="{i18n>View1View.Email}"/>
+						<table:template>
+							<Text text="{Email}" />
+						</table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+            
+            </l:VerticalLayout>
+        </content >
+    </Page>
+
+</mvc:View>
